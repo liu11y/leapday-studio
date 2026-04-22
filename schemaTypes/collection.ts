@@ -35,13 +35,21 @@ export const collection = {
     },
     {
       name: 'coverImageUrl',
-      title: '封面图 (Cloudflare 外部直链)',
+      title: '封面图 (Cloudflare / GitHub 外部直链)',
       type: 'url',
       description: '优先显示此项。'
     },
+    // 👇 这就是那个能让你极速批量粘贴链接的字段！
+    {
+      name: 'bulkExternalUrls',
+      title: '批量导入外链 (极速版)',
+      type: 'text',
+      rows: 5,
+      description: '【批量专用】请直接把批量生成的多个链接粘贴在这里（每行一个）。前端会自动解析，并与下方单张上传的图片合并显示。'
+    },
     {
       name: 'images',
-      title: '作品图集 (支持上传或填入链接)',
+      title: '作品图集 (支持单张上传或填入单张链接)',
       type: 'array',
       of: [
         {
@@ -57,7 +65,7 @@ export const collection = {
             },
             {
               name: 'externalUrl',
-              title: '方式二：填入外部直链 (PicGo)',
+              title: '方式二：填入外部直链',
               type: 'url'
             }
           ],
