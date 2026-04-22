@@ -1,47 +1,33 @@
-import {defineField, defineType} from 'sanity'
-
-export const collection = defineType({
-  name: 'collection',
-  title: '摄影合集 (Collection)',
+export const siteSettings = {
+  name: 'siteSettings',
+  title: '网站全局前端设置',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: '合集标题',
+    {
+      name: 'mainTitle',
+      title: '主标题 (例如: NEO DREAM)',
       type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'date',
-      title: '拍摄/发布日期',
-      type: 'date',
-      options: { dateFormat: 'YYYY-MM' }
-    }),
-    defineField({
-      name: 'shortIntro',
-      title: '简短导语 (比如：在海拔4000米的荒野...)',
-      type: 'text',
-      rows: 3,
-    }),
-    defineField({
-      name: 'coverImage',
-      title: '封面大图 (会自动提取这图的颜色做高级渐变)',
-      type: 'image',
-      options: { hotspot: true }, // 允许你在后台自由调整裁切重点
-    }),
-    defineField({
-      name: 'tags',
-      title: '标签 (输入后按回车，比如: 风光, 川西, 胶片)',
-      type: 'array',
-      of: [{type: 'string'}],
-      options: { layout: 'tags' }
-    }),
-    defineField({
-      name: 'images',
-      title: '照片墙 (把这个合集的照片全拖进来)',
-      type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
-      options: { layout: 'grid' } // 以漂亮的网格形式显示缩略图
-    }),
+    },
+    {
+      name: 'subtitle',
+      title: '副标题 (例如: A PHOTOGRAPHY JOURNAL)',
+      type: 'string',
+    },
+    {
+      // --- 关键改动：改为 URL 类型，直接粘贴 Cloudflare 链接 ---
+      name: 'heroImageUrl',
+      title: '首页背景图 (Cloudflare 直链)',
+      type: 'url',
+      description: '请粘贴 PicGo 上传后得到的 https://...pages.dev 链接'
+    },
+    {
+      name: 'heroVideo',
+      title: '首页视频背景 (可选)',
+      type: 'file',
+      options: {
+        accept: 'video/mp4,video/webm'
+      },
+      description: '上传 MP4 格式。注意：如果填了上面的图片直链，视频将作为备选或在图片加载前显示。'
+    }
   ],
-})
+}
