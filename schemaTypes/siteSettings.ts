@@ -1,30 +1,36 @@
-import {defineField, defineType} from 'sanity'
-
-export const siteSettings = defineType({
+export default {
   name: 'siteSettings',
-  title: '网站全局橱窗设置',
+  title: '网站全局前端设置',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: '本次设置的备注名 (比如：2026春季首页)',
-      type: 'string',
-    }),
-    defineField({
-      name: 'heroImage',
-      title: '首页专属大背景图',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
+    {
       name: 'mainTitle',
-      title: '主标题 (不填则默认显示 leapday)',
+      title: '主标题 (例如: NEO DREAM)',
       type: 'string',
-    }),
-    defineField({
+    },
+    {
       name: 'subtitle',
-      title: '副标题 (不填则默认显示 A PHOTOGRAPHY JOURNAL)',
+      title: '副标题 (例如: A PHOTOGRAPHY JOURNAL)',
       type: 'string',
-    }),
+    },
+    {
+      name: 'heroImage',
+      title: '首页静态背景图',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      description: '当没有上传视频，或视频加载中时，将显示此图片。'
+    },
+    // --- 核心更新：增加视频上传字段 ---
+    {
+      name: 'heroVideo',
+      title: '首页视频背景 (可选)',
+      type: 'file',
+      options: {
+        accept: 'video/mp4,video/webm'
+      },
+      description: '上传 MP4 或 WebM 格式。上传后，网页端将优先播放视频，并自动静音循环。'
+    }
   ],
-})
+}
