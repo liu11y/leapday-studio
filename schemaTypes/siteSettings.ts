@@ -1,4 +1,4 @@
-export default {
+export const siteSettings = {
   name: 'siteSettings',
   title: '网站全局前端设置',
   type: 'document',
@@ -22,7 +22,6 @@ export default {
       },
       description: '当没有上传视频，或视频加载中时，将显示此图片。'
     },
-    // --- 核心更新：增加视频上传字段 ---
     {
       name: 'heroVideo',
       title: '首页视频背景 (可选)',
