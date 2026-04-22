@@ -15,12 +15,18 @@ export const siteSettings = {
     },
     {
       name: 'heroImage',
-      title: '首页静态背景图',
+      title: '首页背景图 (Sanity 直接上传)',
       type: 'image',
       options: {
         hotspot: true,
       },
-      description: '当没有上传视频，或视频加载中时，将显示此图片。'
+      description: '适合临时上传或需要自动生成模糊占位图时使用。'
+    },
+    {
+      name: 'heroImageUrl',
+      title: '首页背景图 (Cloudflare 外部直链)',
+      type: 'url',
+      description: '请粘贴 PicGo 上传后得到的 https://...pages.dev 链接，适合追求国内极速访问时使用。'
     },
     {
       name: 'heroVideo',
@@ -29,7 +35,7 @@ export const siteSettings = {
       options: {
         accept: 'video/mp4,video/webm'
       },
-      description: '上传 MP4 或 WebM 格式。上传后，网页端将优先播放视频，并自动静音循环。'
+      description: '上传 MP4 格式。注意：前端逻辑会优先寻找视频，若无视频则按照“外部直链 > 直接上传”的顺序显示图片。'
     }
   ],
 }
