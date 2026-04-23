@@ -27,6 +27,12 @@ export const siteSettings = {
       description: '优先显示此项。请粘贴 PicGo 得到的 https://...pages.dev 链接。'
     },
     {
+      name: 'heroVideoUrl',
+      title: '首页视频背景 (Cloudflare / GitHub 外部直链)',
+      type: 'url',
+      description: '【极速视频】优先播放此项。请将 GitHub 上的 MP4 链接粘贴在此处（文件需小于 25MB）。'
+    },
+    {
       name: 'heroVideo',
       title: '首页视频背景 (可选)',
       type: 'file',
